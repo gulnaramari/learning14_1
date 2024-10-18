@@ -162,4 +162,3 @@ cython_debug/
 .idea/
 /tests/test_log.txt
 test_log.txt
-
