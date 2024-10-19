@@ -1,11 +1,14 @@
-def test_product_init(product):  # тест на инициализацию
+import pytest
+
+
+def test_product_init(product):
     assert product.name == "Samsung Galaxy S23 Ultra"
     assert product.description == "256GB, Серый цвет, 200MP камера"
     assert product.price == 180000.0
     assert product.quantity == 5
 
 
-def test_category_init_correct(first_category, second_category): # тест на инициализацию
+def test_category_init_correct(first_category, second_category):
     assert first_category.name == "Смартфоны"
     assert first_category.description == ("Смартфоны, как средство не только коммуникации,"
                                     " но и получения дополнительных функций для удобства жизни")

@@ -61,9 +61,3 @@ exclude_also = [
 ]
 
 
-[tool.coverage.report]
-exclude_also = [
-    "raise NotImplementedError",
-    "if __name__ == .__main__.:",
-]
-
