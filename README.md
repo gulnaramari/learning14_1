@@ -10,24 +10,10 @@ The program uses the version Python 3.12.4
 
 тестирование функций через pytest, для запуска тестов и новый функционал
 
-Функции, которые мы будем использовать в этой версии кода:
-Тесты проекта: покрытие тестами кода проекта
----------- coverage: platform win32, python 3.12.4-final-0 -----------
-
-File statements missing excluded coverage src_init_.py 0 0 0 100%
-
-src\main.py 22 0 30 100%
-
-tests_init_.py 0 0 0 100%
-
-tests\test_main.py 17 0 0 100%
-
-Total 39 0 30 100%
-
 Инструкция по установке
 [Чтобы скачать репозиторий:] (https://github.com/gulnaramari/learning14_1/tree/feature14_1)
 
-Затем вам необходимо установить основные зависимости для запуска проекта в вашей системе:
+Затем необходимо установить основные зависимости для запуска проекта в вашей системе:
 
 pip install -r requirements.txt
 
