@@ -1,18 +1,25 @@
-import pytest
-from src.main import Product, Category
-from tests.conftest import smartphone, category
+def test_product_init(product):  # тест на инициализацию
+    assert product.name == "Samsung Galaxy S23 Ultra"
+    assert product.description == "256GB, Серый цвет, 200MP камера"
+    assert product.price == 180000.0
+    assert product.quantity == 5
 
 
-def test_product(smartphone):  # тест на инициализацию
-    assert smartphone.name == "Samsung Galaxy S23 Ultra"
-    assert smartphone.description == "256GB, Серый цвет, 200MP камера"
-    assert smartphone.price == 180000.0
-    assert smartphone.quantity == 5
-
-
-def test_category(category): # тест на инициализацию
-    assert category.name == "Смартфоны"
-    assert category.description == ("Смартфоны, как средство не только коммуникации,"
+def test_category_init_correct(first_category, second_category): # тест на инициализацию
+    assert first_category.name == "Смартфоны"
+    assert first_category.description == ("Смартфоны, как средство не только коммуникации,"
                                     " но и получения дополнительных функций для удобства жизни")
-    assert category.products == 1
+    assert len(first_category.products) == 3
+    assert second_category.name == "Телевизоры"
+    assert len(second_category.products) == 1
 
+    assert first_category.category_count == 2
+    assert second_category.category_count == 2
+
+    assert first_category.product_count == 4
+    assert second_category.product_count == 4
+
+
+def test_category_wrong(second_category): # тест на корректность
+    with pytest.raises(AssertionError):
+        assert second_category.name == "Смартфоны"

@@ -1,9 +1,9 @@
 class Product:
     """ Информация о свойствах продуктов"""
-    name: str #название продукта
-    description: str #описание  продукта
-    price: str  #цена  продукта
-    quantity: float #количество продукта
+    name: str  # название продукта
+    description: str  # описание  продукта
+    price: str  # цена  продукта
+    quantity: float  # количество продукта
 
     def __init__(self, name, description, price, quantity):
         self.name = name
@@ -14,22 +14,20 @@ class Product:
 
 class Category:
     """ Информация о категориях """
+    name: str  # название продукта
+    description: str  # описание продукта
+    products: list  # список товаров категории
 
     category_count = 0
     product_count = 0
 
-    name: str # название продукта
-    description: str # описание продукта
-    products: list # список товаров категории
-
-
-    def __init__(self, name, description, products):
+    def __init__(self, name, description, products=None):
         self.name = name
         self.description = description
-        self.products = products
+        self.products = products if products else []
 
         Category.category_count += 1
-        Category.product_count += 1
+        Category.product_count += len(products) if products else 0
 
 
 if __name__ == "__main__":
