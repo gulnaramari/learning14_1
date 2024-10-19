@@ -20,7 +20,8 @@ class Category:
 
     name: str # название продукта
     description: str # описание продукта
-    products: str # список товаров категории
+    products: list # список товаров категории
+
 
     def __init__(self, name, description, products):
         self.name = name
@@ -52,8 +53,8 @@ if __name__ == "__main__":
     print(product3.quantity)
 
     category1 = Category("Смартфоны",
-                         "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для "
-                         "удобства жизни",
+                         ("Смартфоны, как средство не только коммуникации,"
+                          "но и получения дополнительных функций для удобства жизни"),
                          [product1, product2, product3])
 
     print(category1.name == "Смартфоны")
