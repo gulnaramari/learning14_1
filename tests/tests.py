@@ -10,8 +10,10 @@ def test_product_init(product):
 
 def test_category_init_correct(first_category, second_category):
     assert first_category.name == "Смартфоны"
-    assert first_category.description == ("Смартфоны, как средство не только коммуникации,"
-                                    " но и получения дополнительных функций для удобства жизни")
+    assert first_category.description == ("Смартфоны, как средство"
+                                          " не только коммуникации,"
+                                          " но и получения дополнительных"
+                                          " функций для удобства жизни")
     assert len(first_category.products) == 3
     assert second_category.name == "Телевизоры"
     assert len(second_category.products) == 1
@@ -23,6 +25,6 @@ def test_category_init_correct(first_category, second_category):
     assert second_category.product_count == 4
 
 
-def test_category_wrong(second_category): # тест на корректность
+def test_category_wrong(second_category):  # тест на корректность
     with pytest.raises(AssertionError):
         assert second_category.name == "Смартфоны"

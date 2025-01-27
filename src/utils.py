@@ -1,6 +1,7 @@
 import json
 import os
-from src.main import Product, Category
+
+from src.main import Category, Product
 
 
 def read_json(path: str) -> dict:
@@ -21,7 +22,7 @@ def create_objects_from_json(result):
     return names_
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     raw_data = read_json("../products.json")
     print(raw_data)
     object_data = create_objects_from_json(raw_data)
