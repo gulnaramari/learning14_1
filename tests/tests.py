@@ -28,3 +28,16 @@ def test_category_init_correct(first_category, second_category):
 def test_category_wrong(second_category):  # тест на корректность
     with pytest.raises(AssertionError):
         assert second_category.name == "Смартфоны"
+
+def test_product_list_property(first_category, second_category):
+    with pytest.raises(AttributeError):
+        print(first_category.__products)
+    assert (
+        first_category.product_list
+        == "Butter, 84.5 руб. Остаток: 10 шт.\nMilk, 155.87 руб. Остаток: 34 шт.\n"
+    )
+    assert (
+        second_category.product_list
+        == "Product, 84.5 руб. Остаток: 10 шт.\nProduct number two, 155.87 руб. Остаток: 34 шт."
+        "\nProduct three, 8467.56 руб. Остаток: 32 шт.\n"
+    )
