@@ -12,6 +12,7 @@ python-dotenv = "^1.0.1"
 pandas = "^2.2.3"
 pytest = "^8.3.3"
 pytest-cov = "^5.0.0"
+setuptools = "^75.2.0"
 
 
 [tool.poetry.group.lint.dependencies]
@@ -59,4 +60,5 @@ exclude_also = [
     "raise NotImplementedError",
     "if __name__ == .__main__.:",
 ]
+
 
