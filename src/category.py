@@ -13,19 +13,19 @@ class Category:
         """Инициализация объекта"""
         self.name = name
         self.description = description
-        self.products = products if products else []
+        self.__products = products if products else []
 
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
 
-    def add_product(self, new_product: Product):
-        self.products.append(new_product)
+    def add_product(self, product_added: Product):
+        self.__products.append(product_added)
         Category.product_count += 1
 
     @property
     def product_list(self):
         product_str = ''
-        for product in self.products:
+        for product in self.__products:
             product_str += f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n'
         return product_str
 
