@@ -9,7 +9,7 @@ class Product:
         """Инициализация объекта"""
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
 
 
@@ -22,6 +22,17 @@ class Product:
         quantity = product_new.get('quantity')
         return cls(name, description, price, quantity)
 
+    @property
+    def price(self):
+        return self.__price
+
+
+    @price.setter
+    def price(self, value):
+        if value <= 0:
+            print("Цена не должна быть нулевая или отрицательная")
+            return
+        self.__price = value
 
 
 if __name__ == "__main__":
