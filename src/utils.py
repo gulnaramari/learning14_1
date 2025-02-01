@@ -6,7 +6,7 @@ from src.main import Category, Product
 
 def read_json(path: str) -> dict:
     full_path = os.path.abspath(path)
-    with open(full_path, 'r', encoding='UTF-8') as file:
+    with open(full_path, "r", encoding="UTF-8") as file:
         result = json.load(file)
     return result
 

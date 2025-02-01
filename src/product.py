@@ -1,8 +1,6 @@
-from typing import Any
-
-
 class Product:
-    """ Класс продуктов"""
+    """Класс продуктов"""
+
     name: str  # название продукта
     description: str  # описание  продукта
     price: str  # цена  продукта
@@ -15,28 +13,33 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-
     @classmethod
-    def new_product(cls, product_new):
+    def new_product(cls, product_new, actual_list=None):
         """Возвращает объект класса Product из товара в словаре"""
-        name = product_new.get('name')
-        description = product_new.get('description')
-        price = product_new.get('price')
-        quantity = product_new.get('quantity')
-        return cls(name, description, price, quantity)
+        if actual_list:
+            for product in actual_list:
+                if product.name == product_new["name"]:
+                    product.quantity += product_new["quantity"]
+                    product.price = max([product.price, product_new["price"]])
+                    return product
+        return cls(product_new["name"], product_new["description"],
+                   product_new["price"], product_new["quantity"])
 
     @property
     def price(self):
         return self.__price
 
-
     @price.setter
-    def price(self, value):
+    def price(self, value: int):
         if value <= 0:
             print("Цена не должна быть нулевая или отрицательная")
-        self.__price = value
+        elif value < self.__price:
+            answer = input("Нужно изменить цену  Y/N")
+            if answer != "Y":
+                return self.__price == value
 
-if __name__ == "__main__":# pragma: no cover
+
+if __name__ == "__main__":  # pragma: no cover
     product1 = Product("Samsung Galaxy S23 Ultra",
                        "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
@@ -57,9 +60,13 @@ if __name__ == "__main__":# pragma: no cover
     print(product3.price)
     print(product3.quantity)
 
-    product4 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
+    product4 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
 
     print(product4.name)
     print(product4.description)
     print(product4.price)
     print(product4.quantity)
+
+    product5 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    print(product5.name)
+    print(product5.quantity)

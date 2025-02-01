@@ -1,8 +1,4 @@
 import pytest
-from src.category import Category
-from src.product import Product
-
-import pytest
 
 from src.category import Category
 from src.product import Product
@@ -86,6 +82,8 @@ def second_category():
             ),
         ],
     )
+
+
 @pytest.fixture
 def product_add():
     return {

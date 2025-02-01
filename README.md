@@ -22,7 +22,6 @@ tests\test_product.py       27      0   100%
 --------------------------------------------
 TOTAL                      119      4    97%
 
-
 Инструкция по установке
 [Чтобы скачать репозиторий:] (https://github.com/gulnaramari/learning14_1/tree/feature14_1)
 

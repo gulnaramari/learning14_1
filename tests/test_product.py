@@ -1,5 +1,6 @@
 from src.product import Product
 
+
 def test_product_init1(product):
     assert product.name == "Samsung Galaxy S23 Ultra"
     assert product.description == "256GB, Серый цвет, 200MP камера"
@@ -17,6 +18,7 @@ def test_product_init2(first_product, second_product):
     assert second_product.price == 155.87
     assert second_product.quantity == 34
 
+
 def test_add_new_product(product_add):
     product5 = Product.new_product(product_add)
     assert product5.name == "Chocolate"
@@ -26,8 +28,9 @@ def test_add_new_product(product_add):
 
 
 def test_price_setter(capsys, first_product):
-    first_product.price = -600.9
+    first_product.price = -84.50
     message = capsys.readouterr()
-    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
-    first_product.price = 600.9
-    assert first_product.price == 600.9
+    assert message.out.strip() == "Цена не должна быть" \
+                                  " нулевая или отрицательная"
+    first_product.price = 84.50
+    assert first_product.price == 84.50

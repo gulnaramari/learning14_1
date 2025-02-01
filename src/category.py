@@ -1,9 +1,10 @@
-from src.product import Product
 from typing import Any
+from src.product import Product
 
 
 class Category:
-    """Класс категории """
+    """Класс категории"""
+
     name: str  # название продукта
     description: str  # описание продукта
     products: list  # список товаров категории
@@ -29,13 +30,18 @@ class Category:
 
     @property
     def products(self) -> str:
-        product_str = ''
+        product_str = ""
         for product in self.__products:
-            product_str += f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n'
+            product_str += f"{product.name}, {product.price} руб." \
+                           f" Остаток: {product.quantity} шт.\n"
         return product_str
 
+    @property
+    def products_in_list(self):
+        return self.__products
 
-if __name__ == "__main__":# pragma: no cover
+
+if __name__ == "__main__":  # pragma: no cover
     product1 = Product("Samsung Galaxy S23 Ultra",
                        "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
@@ -55,11 +61,15 @@ if __name__ == "__main__":# pragma: no cover
     print(product3.description)
     print(product3.price)
     print(product3.quantity)
-    category1 = Category("Смартфоны",
-                         ("Смартфоны, как средство не только коммуникации,"
-                          "но и получения дополнительных функций"
-                          " для удобства жизни"),
-                         [product1, product2, product3])
+    category1 = Category(
+        "Смартфоны",
+        (
+            "Смартфоны, как средство не только коммуникации,"
+            "но и получения дополнительных функций"
+            " для удобства жизни"
+        ),
+        [product1, product2, product3],
+    )
 
     print(category1.name == "Смартфоны")
     print(category1.description)
@@ -68,10 +78,16 @@ if __name__ == "__main__":# pragma: no cover
     print(category1.product_count)
 
     print(category1.products)
-    product4 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
+    product4 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
     category1.add_product(product4)
     print(category1.products)
 
     print(category1.product_count)
     print(Category.category_count)
     print(Category.product_count)
+    product5 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    print(category1.products_in_list)
+    category1.add_product(product5)
+    print(category1.products_in_list)
+    products_in_list = product1, product2, product3, product4
+    print(Product.new_product(products_in_list))
