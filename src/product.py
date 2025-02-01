@@ -1,3 +1,6 @@
+from typing import Any
+
+
 class Product:
     """ Класс продуктов"""
     name: str  # название продукта
@@ -31,11 +34,9 @@ class Product:
     def price(self, value):
         if value <= 0:
             print("Цена не должна быть нулевая или отрицательная")
-            return
         self.__price = value
 
-
-if __name__ == "__main__":
+if __name__ == "__main__":# pragma: no cover
     product1 = Product("Samsung Galaxy S23 Ultra",
                        "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
@@ -56,5 +57,9 @@ if __name__ == "__main__":
     print(product3.price)
     print(product3.quantity)
 
+    product4 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
 
-product4 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
+    print(product4.name)
+    print(product4.description)
+    print(product4.price)
+    print(product4.quantity)

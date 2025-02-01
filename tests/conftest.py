@@ -2,18 +2,26 @@ import pytest
 from src.category import Category
 from src.product import Product
 
+import pytest
+
+from src.category import Category
+from src.product import Product
+
 
 @pytest.fixture
 def product():
-    return Product("Samsung Galaxy S23 Ultra",
-                   "256GB, Серый цвет, 200MP камера", 180000.0, 5)
-
+    return Product(
+        name="Samsung Galaxy S23 Ultra",
+        description="256GB, Серый цвет, 200MP камера",
+        price=180000.0,
+        quantity=5,
+    )
 
 
 @pytest.fixture
 def first_product():
     return Product(
-        name="Butter",
+        name="Product",
         description="Description of the product",
         price=84.50,
         quantity=10,
@@ -23,29 +31,30 @@ def first_product():
 @pytest.fixture
 def second_product():
     return Product(
-        name="Milk",
-        description="Description of the product",
+        name="Product two",
+        description="Description of the product two",
         price=155.87,
         quantity=34,
     )
 
+
 @pytest.fixture
 def first_category():
     return Category(
-        name="Category",
-        description="Description of the category",
+        name="Category1",
+        description="Description of the category1",
         products=[
             Product(
-                name="Butter",
+                name="Product",
                 description="Description of the product",
-                price=200.50,
-                quantity=20,
+                price=84.50,
+                quantity=10,
             ),
             Product(
-                name="Milk",
-                description="Description of the product",
-                price=120.8,
-                quantity=100,
+                name="Product two",
+                description="Description of the product two",
+                price=155.87,
+                quantity=34,
             ),
         ],
     )
@@ -54,31 +63,29 @@ def first_category():
 @pytest.fixture
 def second_category():
     return Category(
-        name="Category number two",
-        description="Description of the category number two",
+        name="Category2",
+        description="Description of the category2",
         products=[
             Product(
-                name="Pizza",
+                name="Product",
                 description="Description of the product",
-                price=450.50,
-                quantity=20,
+                price=84.50,
+                quantity=10,
             ),
             Product(
-                name="Cheese",
+                name="Product two",
                 description="Description of the product number two",
                 price=155.87,
                 quantity=34,
             ),
             Product(
-                name="Pasta",
+                name="Product three",
                 description="Description of the product three",
-                price=467.56,
+                price=8467.56,
                 quantity=32,
             ),
         ],
     )
-
-
 @pytest.fixture
 def product_add():
     return {
