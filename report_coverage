@@ -1,0 +1,10 @@
+src\__init__.py              0      0   100%
+src\category.py             25      4    84%
+src\product.py              26      0   100%
+tests\__init__.py            0      0   100%
+tests\conftest.py           24      0   100%
+tests\test_category.py      17      0   100%
+tests\test_product.py       27      0   100%
+--------------------------------------------
+TOTAL                      119      4    97%
+

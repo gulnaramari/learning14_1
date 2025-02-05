@@ -1,35 +1,94 @@
 import pytest
 
-from src.main import Category, Product
+from src.category import Category
+from src.product import Product
 
 
 @pytest.fixture
 def product():
-    return Product("Samsung Galaxy S23 Ultra",
-                   "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    return Product(
+        name="Samsung Galaxy S23 Ultra",
+        description="256GB, Серый цвет, 200MP камера",
+        price=180000.0,
+        quantity=5,
+    )
+
+
+@pytest.fixture
+def first_product():
+    return Product(
+        name="Product",
+        description="Description of the product",
+        price=84.50,
+        quantity=10,
+    )
+
+
+@pytest.fixture
+def second_product():
+    return Product(
+        name="Product two",
+        description="Description of the product two",
+        price=155.87,
+        quantity=34,
+    )
 
 
 @pytest.fixture
 def first_category():
     return Category(
-        "Смартфоны",
-        "Смартфоны, как средство не только коммуникации,"
-        " но и получения дополнительных функций для "
-        "удобства жизни",
-        [
-            Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет,"
-                                                " 200MP камера", 180000.0, 5),
-            Product("Iphone 15", "512GB, Gray space", 210000.0, 8),
-            Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14),
-        ]
+        name="Category1",
+        description="Description of the category1",
+        products=[
+            Product(
+                name="Product",
+                description="Description of the product",
+                price=84.50,
+                quantity=10,
+            ),
+            Product(
+                name="Product two",
+                description="Description of the product two",
+                price=155.87,
+                quantity=34,
+            ),
+        ],
     )
 
 
 @pytest.fixture
 def second_category():
-    return Category("Телевизоры",
-                    "Современный телевизор, который позволяет"
-                    "наслаждаться просмотром, станет вашим другом"
-                    "и помощником",
-                    [Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)]
-                    )
+    return Category(
+        name="Category2",
+        description="Description of the category2",
+        products=[
+            Product(
+                name="Product",
+                description="Description of the product",
+                price=84.50,
+                quantity=10,
+            ),
+            Product(
+                name="Product two",
+                description="Description of the product number two",
+                price=155.87,
+                quantity=34,
+            ),
+            Product(
+                name="Product three",
+                description="Description of the product three",
+                price=8467.56,
+                quantity=32,
+            ),
+        ],
+    )
+
+
+@pytest.fixture
+def product_add():
+    return {
+        "name": "Chocolate",
+        "description": "White chocolate",
+        "price": 200.5,
+        "quantity": 33,
+    }
