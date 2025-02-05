@@ -27,7 +27,6 @@ class Category:
             products_quantity += product.quantity
         return f'{self.name}, количество продуктов: {products_quantity} шт.'
 
-
     def add_product(self, product: Product) -> Any:
         if isinstance(product, Product):
             self.__products.append(product)
@@ -41,6 +40,8 @@ class Category:
         for product in self.__products:
             product_str += f"{product.name}, {product.price} руб." \
                            f" Остаток: {product.quantity} шт.\n"
+
+            product_str += f'{str(product)}\n'
         return product_str
 
     @property
@@ -98,25 +99,6 @@ if __name__ == "__main__":  # pragma: no cover
     print(category1.products_in_list)
     category1.add_product(product5)
     print(category1.products_in_list)
-    products_in_list = product1, product2, product3, product4
-    print(Product.new_product(products_in_list))
 
 
-if __name__ == '__main__':
-    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
-    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
 
-    print(str(product1))
-    print(str(product2))
-    print(str(product3))
-
-    category1 = Category(
-        "Смартфоны",
-        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
-        [product1, product2, product3]
-    )
-
-    print(str(category1))
-
-    print(category1.products)
