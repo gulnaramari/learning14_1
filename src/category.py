@@ -1,4 +1,5 @@
 from typing import Any
+
 from src.product import Product
 
 
@@ -25,7 +26,7 @@ class Category:
         products_quantity = 0
         for product in self.__products:
             products_quantity += product.quantity
-        return f'{self.name}, количество продуктов: {products_quantity} шт.'
+        return f"{self.name}, количество продуктов: {products_quantity} шт."
 
     def add_product(self, product: Product) -> Any:
         if isinstance(product, Product):
@@ -38,7 +39,7 @@ class Category:
     def products(self) -> str:
         product_str = ""
         for product in self.__products:
-            product_str +=  f'{str(product)}\n'
+            product_str += f"{str(product)}\n"
         return product_str
 
     @property
@@ -56,8 +57,6 @@ if __name__ == "__main__":  # pragma: no cover
     print(str(product2))
     print(str(product3))
 
-
-
     print(product1.name)
     print(product1.description)
     print(product1.price)
@@ -74,8 +73,9 @@ if __name__ == "__main__":  # pragma: no cover
     print(product3.quantity)
     category1 = Category(
         "Смартфоны",
-        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
-        [product1, product2, product3]
+        "Смартфоны, как средство не только коммуникации,"
+        " но и получения дополнительных функций для удобства жизни",
+        [product1, product2, product3],
     )
 
     print(str(category1))
@@ -100,4 +100,3 @@ if __name__ == "__main__":  # pragma: no cover
     print(str(category1))
 
     print(category1.products_in_list)
-
