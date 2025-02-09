@@ -59,6 +59,8 @@ if __name__ == "__main__":  # pragma: no cover
     print(str(product2))
     print(str(product3))
 
+
+
     print(product1.name)
     print(product1.description)
     print(product1.price)
@@ -80,6 +82,7 @@ if __name__ == "__main__":  # pragma: no cover
     )
 
     print(str(category1))
+    print(category1)
 
     print(category1.name == "Смартфоны")
     print(category1.description)
@@ -87,18 +90,17 @@ if __name__ == "__main__":  # pragma: no cover
     print(category1.category_count)
     print(category1.product_count)
 
-    print(category1.products)
     product4 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
     category1.add_product(product4)
-    print(category1.products)
+    print(str(category1))
 
     print(category1.product_count)
     print(Category.category_count)
-    print(Category.product_count)
+
     product5 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-    print(category1.products_in_list)
+    print(product5.name)
     category1.add_product(product5)
+    print(str(category1))
+
     print(category1.products_in_list)
-
-
 

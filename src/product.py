@@ -54,7 +54,6 @@ if __name__ == "__main__":  # pragma: no cover
     print(product1 + product3)
     print(product2 + product3)
 
-
     print(product1.name)
     print(product1.description)
     print(product1.price)
