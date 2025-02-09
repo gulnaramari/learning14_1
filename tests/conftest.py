@@ -1,7 +1,7 @@
 import pytest
-
 from src.category import Category
 from src.product import Product
+from src.cat_iter import CategoryIterator
 
 
 @pytest.fixture
@@ -92,3 +92,24 @@ def product_add():
         "price": 200.5,
         "quantity": 33,
     }
+
+
+@pytest.fixture
+def new_price():
+    return -100
+
+@pytest.fixture
+def cat_iterator(first_category):
+    return CategoryIterator(first_category)
+
+
+@pytest.fixture
+def cat_iterator(second_category):
+    return CategoryIterator(second_category)
+
+
+@pytest.fixture
+def product_new():
+    product_new = {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
+                   "quantity": 5}
+    return product_new
