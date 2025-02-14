@@ -1,4 +1,5 @@
 from typing import Any
+
 from src.product import Product
 
 
@@ -21,6 +22,12 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
 
+    def __str__(self):
+        products_quantity = 0
+        for product in self.__products:
+            products_quantity += product.quantity
+        return f"{self.name}, количество продуктов: {products_quantity} шт."
+
     def add_product(self, product: Product) -> Any:
         if isinstance(product, Product):
             self.__products.append(product)
@@ -32,8 +39,7 @@ class Category:
     def products(self) -> str:
         product_str = ""
         for product in self.__products:
-            product_str += f"{product.name}, {product.price} руб." \
-                           f" Остаток: {product.quantity} шт.\n"
+            product_str += f"{str(product)}\n"
         return product_str
 
     @property
@@ -46,6 +52,10 @@ if __name__ == "__main__":  # pragma: no cover
                        "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+
+    print(str(product1))
+    print(str(product2))
+    print(str(product3))
 
     print(product1.name)
     print(product1.description)
@@ -63,13 +73,13 @@ if __name__ == "__main__":  # pragma: no cover
     print(product3.quantity)
     category1 = Category(
         "Смартфоны",
-        (
-            "Смартфоны, как средство не только коммуникации,"
-            "но и получения дополнительных функций"
-            " для удобства жизни"
-        ),
+        "Смартфоны, как средство не только коммуникации,"
+        " но и получения дополнительных функций для удобства жизни",
         [product1, product2, product3],
     )
+
+    print(str(category1))
+    print(category1)
 
     print(category1.name == "Смартфоны")
     print(category1.description)
@@ -77,17 +87,16 @@ if __name__ == "__main__":  # pragma: no cover
     print(category1.category_count)
     print(category1.product_count)
 
-    print(category1.products)
     product4 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
     category1.add_product(product4)
-    print(category1.products)
+    print(str(category1))
 
     print(category1.product_count)
     print(Category.category_count)
-    print(Category.product_count)
+
     product5 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-    print(category1.products_in_list)
+    print(product5.name)
     category1.add_product(product5)
+    print(str(category1))
+
     print(category1.products_in_list)
-    products_in_list = product1, product2, product3, product4
-    print(Product.new_product(products_in_list))
