@@ -35,6 +35,7 @@ class Category:
         else:
             raise TypeError
 
+
     @property
     def products(self) -> str:
         product_str = ""

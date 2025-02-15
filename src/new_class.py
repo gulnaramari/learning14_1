@@ -1,6 +1,7 @@
 from src.product import Product
 
 
+
 class LawnGrass(Product):
     def __init__(self, name, description, price, quantity, country, germination_period, color):
         super().__init__(name, description, price, quantity)
@@ -14,7 +15,7 @@ class LawnGrass(Product):
         raise TypeError
 
 
-class SmartPhone(Product):
+class Smartphone(Product):
     def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
         super().__init__(name, description, price, quantity)
         self.efficiency = efficiency
@@ -23,7 +24,7 @@ class SmartPhone(Product):
         self.color = color
 
     def __add__(self, other):
-        if type(other) is SmartPhone:
+        if type(other) is Smartphone:
             return self.price * self.quantity + other.price * other.quantity
         raise TypeError
 
