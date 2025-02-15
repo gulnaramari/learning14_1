@@ -19,3 +19,4 @@ def test_smartphone_add(smartphone_1, smartphone_2):
 def test_smartphone_wrong(smartphone_2):
     with pytest.raises(TypeError):
         result = smartphone_2 + 2
+        print(result)

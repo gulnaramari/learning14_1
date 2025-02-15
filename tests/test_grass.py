@@ -18,6 +18,4 @@ def test_lawngrass_add(grass_1, grass_2):
 def test_lawngrass_wrong(grass_2):
     with pytest.raises(TypeError):
         result = grass_2 + 2
-
-
-
+        print(result)
