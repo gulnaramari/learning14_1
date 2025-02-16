@@ -30,8 +30,9 @@ def test_add_new_product(product_add):
 def test_price_setter(capsys, first_product):
     first_product.price = -84.50
     message = capsys.readouterr()
-    assert message.out.strip().split("\n")[-1] == 'Цена не должна быть' \
-                                                  ' нулевая или отрицательная'
+    assert message.out.strip().split("\n")[-1] == "Цена не должна" \
+                                                  " быть" " нулевая" \
+                                                  " или отрицательная"
     first_product.price = 84.50
     assert first_product.price == 84.50
 
@@ -39,8 +40,10 @@ def test_price_setter(capsys, first_product):
 def test_price_update(capsys, first_product):
     first_product.price = -100
     message = capsys.readouterr()
-    assert message.out.strip().split("\n")[-1] == 'Цена не должна быть' \
-                                                  ' нулевая или отрицательная'
+    assert message.out.strip().split("\n")[-1] == "Цена не должна" \
+                                                  " быть" " нулевая" \
+                                                  " или отрицательная"
+
 
 def test_product_str(first_product):
     assert str(first_product) == "Product, 84.5 руб. Остаток: 10 шт."
@@ -56,4 +59,3 @@ def test_new_product(product_new, first_product):
     assert test.description == "256GB, Серый цвет, 200MP камера"
     assert test.price == 180000
     assert test.quantity == 5
-

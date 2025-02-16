@@ -29,6 +29,27 @@ products
 Выделена общая функциональность у каждого продукта, которая описана в абстрактном классе.
 Реализован класс-миксин, который при создании объекта, печатает в консоль информацию о том, от какого класса 
 и с какими параметрами был создан объект. Миксин добавлен в цепочку наследования класса Product.
+ coverage: platform win32, python 3.12.4-final-0 -----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+src\__init__.py                0      0   100%
+src\base_prod.py               6      1    83%
+src\cat_iter.py               15      1    93%
+src\category.py               33      4    88%
+src\new_class.py              22      0   100%
+src\print_mixine.py            5      0   100%
+src\product.py                39      9    77%
+tests\__init__.py              0      0   100%
+tests\conftest.py             48      2    96%
+tests\test_category.py        27      2    93%
+tests\test_grass.py           15      1    93%
+tests\test_mixin.py           12      0   100%
+tests\test_product.py         41      0   100%
+tests\test_smartphone.py      16      1    94%
+----------------------------------------------
+TOTAL                        279     21    92%
+
+
 Инструкция по установке
 [Чтобы скачать репозиторий:] (https://github.com/gulnaramari/learning14_1/tree/feature14_1)
 
