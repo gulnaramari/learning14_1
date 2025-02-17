@@ -1,4 +1,5 @@
 from typing import Any
+
 from src.my_exception import ZeroProduct
 from src.product import Product
 
@@ -32,7 +33,8 @@ class Category:
         if isinstance(product, Product):
             try:
                 if product.quantity == 0:
-                    raise ZeroProduct("Нельзя добавлять товар с нулевым количеством")
+                    raise ZeroProduct("Нельзя добавлять"
+                                      " товар с нулевым количеством")
             except ZeroProduct as e:
                 print(str(e))
             else:
@@ -57,7 +59,8 @@ class Category:
 
     def price_middle(self):
         try:
-            return sum([product.price for product in self.__products]) / len(self.__products)
+            return sum([product.price for product
+                        in self.__products]) / len(self.__products)
         except ZeroDivisionError:
             return 0
         finally:
