@@ -33,8 +33,8 @@ class Category:
         if isinstance(product, Product):
             try:
                 if product.quantity == 0:
-                    raise ZeroProduct("Нельзя добавлять"
-                                      " товар с нулевым количеством")
+                    raise ZeroProduct("Нельзя добавлять товар"
+                                      " с нулевым количеством")
             except ZeroProduct as e:
                 print(str(e))
             else:

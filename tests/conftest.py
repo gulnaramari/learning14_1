@@ -124,20 +124,23 @@ def product_new():
 
 @pytest.fixture
 def grass_1():
-    return LawnGrass("Газонная трава", "Элитная трава для газона",
-                     500.0, 20, "Россия", "7 дней", "Зеленый")
+    return LawnGrass("Газонная трава",
+                     "Элитная трава для газона", 500.0, 20,
+                     "Россия", "7 дней", "Зеленый")
 
 
 @pytest.fixture
 def grass_2():
-    return LawnGrass("Газонная трава 2", "Выносливая трава",
-                     450.0, 15, "США", "5 дней", "Темно-зеленый")
+    return LawnGrass("Газонная трава 2",
+                     "Выносливая трава", 450.0, 15,
+                     "США", "5 дней", "Темно-зеленый")
 
 
 @pytest.fixture
 def smartphone_1():
     return Smartphone(
-        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера",
+        "Samsung Galaxy S23 Ultra",
+        "256GB, Серый цвет, 200MP камера",
         180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
     )
 
@@ -150,9 +153,9 @@ def smartphone_2():
 
 @pytest.fixture
 def product_empty_quantity():
-    return Product(name="Samsung", description="256GB, Серый цвет,"
-                                               " 200MP камера",
-                   price=180000.0, quantity=1)
+    return Product(name="Samsung",
+                   description="256GB, Серый цвет,"
+                               " 200MP камера", price=180000.0, quantity=1)
 
 
 @pytest.fixture
@@ -164,5 +167,18 @@ def price_median():
         products=[
             Product("Samsung", "256GB, Серый цвет, 200MP камера", 2, 1),
             Product("Iphone 15", "512GB, Gray space", 4, 1),
+        ],
+    )
+
+
+@pytest.fixture
+def no_price():
+    return Category(
+        name="Смартфоны",
+        description="Смартфоны, как средство не только коммуникации, "
+        "но и получение дополнительных функций для удобства жизни",
+        products=[
+            Product("Samsung", "256GB, Серый цвет, 200MP камера", 0, 1),
+            Product("Iphone 15", "512GB, Gray space", 0, 1),
         ],
     )
