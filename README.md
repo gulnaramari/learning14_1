@@ -35,6 +35,27 @@ products
 В классе Category реализован новый метод, который подсчитывает средний ценник всех товаров. 
 С помощью исключений обработан случай, когда в категории нет товаров и сумма всех товаров будет делиться на ноль. 
 Если такое происходит, возвращается ноль.
+-- coverage: platform win32, python 3.12.4-final-0 -----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+src\__init__.py                0      0   100%
+src\base_prod.py               6      1    83%
+src\cat_iter.py               15      1    93%
+src\category.py               47     13    72%
+src\my_exception.py            3      1    67%
+src\new_class.py              22      0   100%
+src\print_mixine.py            5      0   100%
+src\product.py                41     10    76%
+tests\__init__.py              0      0   100%
+tests\conftest.py             54      2    96%
+tests\test_category.py        29      2    93%
+tests\test_grass.py           15      1    93%
+tests\test_mixin.py           12      0   100%
+tests\test_product.py         41      0   100%
+tests\test_smartphone.py      16      1    94%
+----------------------------------------------
+TOTAL                        306     32    90%
+
 Инструкция по установке
 [Чтобы скачать репозиторий:] (https://github.com/gulnaramari/learning14_1/tree/feature14_1)
 

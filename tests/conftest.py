@@ -146,3 +146,25 @@ def smartphone_1():
 def smartphone_2():
     return Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2,
                       "15", 512, "Gray space")
+
+@pytest.fixture
+def product_empty_quantity():
+    return Product(
+        name='Samsung',
+        description='256GB, Серый цвет, 200MP камера',
+        price=180000.0,
+        quantity=1
+    )
+
+
+@pytest.fixture
+def price_median():
+    return Category(
+        name="Смартфоны",
+        description="Смартфоны, как средство не только коммуникации, "
+                    "но и получение дополнительных функций для удобства жизни",
+        products=[
+            Product('Samsung', '256GB, Серый цвет, 200MP камера', 2, 1),
+            Product('Iphone 15', '512GB, Gray space', 4, 1)
+        ]
+    )

@@ -44,3 +44,7 @@ def test_category_iterator(cat_iterator):
 def cat_iterator_second(cat_iterator):
     with pytest.raises(StopIteration):
         next(cat_iterator)
+
+
+def test_price_middle(price_median, product_empty_quantity):
+    assert price_median.price_middle() == 3
