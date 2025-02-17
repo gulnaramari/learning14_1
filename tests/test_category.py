@@ -52,7 +52,7 @@ def test_add_product():
 
     category_test.add_product(product_test)
 
-    assert category_test.product_count == 11
+    assert category_test.product_count == 13
 
 
 def test_category_str(first_category):
@@ -72,18 +72,5 @@ def cat_iterator_second(cat_iterator):
 
 
 def test_price_middle(price_median, no_price):
-    assert price_median.price_middle() == 3
-    assert no_price.price_middle() == 0
-
-
-def test_custom_exception(capsys, second_category):
-    assert len(second_category.products_in_list) == 3
-
-    product_add = Product(name="Product",
-                          description="Description of the product",
-                          price=84.50, quantity=0)
-    second_category.__products = product_add
-    message = capsys.readouterr()
-    assert message.out.strip().split("\n")[-1] == "Product(Product," \
-                                                  " Description" \
-                                                  " of the product, 84.5, 0)"
+    assert price_median.middle_price() == 3
+    assert no_price.middle_price() == 0

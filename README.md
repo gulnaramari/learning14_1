@@ -45,14 +45,16 @@ src\category.py               47      6    87%
 src\my_exception.py            3      1    67%
 src\new_class.py              22      0   100%
 src\print_mixine.py            5      0   100%
-src\product.py                39      9    77%
+src\product.py                41     10    76%
+tests\__init__.py              0      0   100%
 tests\conftest.py             57      3    95%
+tests\test_category.py        40      2    95%
 tests\test_grass.py           15      1    93%
 tests\test_mixin.py           12      0   100%
 tests\test_product.py         41      0   100%
 tests\test_smartphone.py      16      1    94%
 ----------------------------------------------
-TOTAL                        324     27    92%
+TOTAL                        320     26    92%
 
 
 Инструкция по установке
