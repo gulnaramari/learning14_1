@@ -124,14 +124,14 @@ def product_new():
 
 @pytest.fixture
 def grass_1():
-    return LawnGrass("Газонная трава", "Элитная трава для газона",
-                     500.0, 20, "Россия", "7 дней", "Зеленый")
+    return LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20,
+                     "Россия", "7 дней", "Зеленый")
 
 
 @pytest.fixture
 def grass_2():
-    return LawnGrass("Газонная трава 2", "Выносливая трава",
-                     450.0, 15, "США", "5 дней", "Темно-зеленый")
+    return LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15,
+                     "США", "5 дней", "Темно-зеленый")
 
 
 @pytest.fixture
@@ -144,5 +144,5 @@ def smartphone_1():
 
 @pytest.fixture
 def smartphone_2():
-    return Smartphone("Iphone 15", "512GB, Gray space", 210000.0,
-                      8, 98.2, "15", 512, "Gray space")
+    return Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2,
+                      "15", 512, "Gray space")
