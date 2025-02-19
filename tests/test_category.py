@@ -1,5 +1,8 @@
 import pytest
 
+from src.product import Product
+from src.category import Category
+
 
 def test_category_init_correct(first_category, second_category):
     assert first_category.name == "Category1"
@@ -14,7 +17,12 @@ def test_category_init_correct(first_category, second_category):
     assert second_category.product_count == 5
 
 
-def test_category_wrong(second_category):
+def test_category_wrong(first_category):
+    with pytest.raises(AssertionError):
+        assert first_category.name == "Лекарства"
+
+
+def test_category_wrong_(second_category):
     with pytest.raises(AssertionError):
         assert second_category.name == "Смартфоны"
 
@@ -23,11 +31,28 @@ def test_products_getter(first_category):
     with pytest.raises(AttributeError):
         print(first_category.__products)
     assert (
-        first_category.products == "Product, 84.5 руб."
-        " Остаток: 10 шт.\n"
-        "Product two, 155.87 руб."
-        " Остаток: 34 шт.\n"
+            first_category.products == "Product, 84.5 руб."
+                                       " Остаток: 10 шт.\n"
+                                       "Product two, 155.87 руб."
+                                       " Остаток: 34 шт.\n"
     )
+
+
+def test_add_product():
+    category_test = Category(
+        name="Смартфоны",
+        description="Смартфоны, как средство не только коммуникации,"
+                    " но и получение дополнительных функций"
+                    " для удобства жизни",
+        products=[],
+    )
+    product_test = Product(name="Nokia",
+                           description="212GB, blue цвет, 150MP камера",
+                           price=55000.0, quantity=1)
+
+    category_test.add_product(product_test)
+
+    assert category_test.product_count == 13
 
 
 def test_category_str(first_category):
@@ -44,3 +69,8 @@ def test_category_iterator(cat_iterator):
 def cat_iterator_second(cat_iterator):
     with pytest.raises(StopIteration):
         next(cat_iterator)
+
+
+def test_price_middle(price_median, no_price):
+    assert price_median.middle_price() == 3
+    assert no_price.middle_price() == 0
